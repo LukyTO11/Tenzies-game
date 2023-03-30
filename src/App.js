@@ -35,7 +35,7 @@ export default function App() {
 
 
     function rollDice() {
-        if(!tenzies) {
+        if (!tenzies) {
             setDice(oldDices => oldDices.map(die => {
                 return die.isHeld ?
                     die :
@@ -58,7 +58,11 @@ export default function App() {
     }
 
     const diceElements = dice.map(die => (
-        <Die value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)} />
+        <Die
+            value={die.value}
+            isHeld={die.isHeld}
+            holdDice={() => holdDice(die.id)}
+        />
     ))
 
     return (
@@ -74,7 +78,7 @@ export default function App() {
                 className="roll-dice"
                 onClick={rollDice}
             >
-                {tenzies ? "New Game": "Roll"}
+                {tenzies ? "New Game" : "Roll"}
             </button>
         </main>
     )
